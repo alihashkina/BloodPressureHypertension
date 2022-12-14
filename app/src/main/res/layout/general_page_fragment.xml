@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".fragment.GeneralPage">
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/btnSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:textColor="@color/md_white_1000"
+            android:text="@string/save"/>
+
+        <ScrollView
+            android:id="@+id/scrollGeneral"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:scrollbars="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/md_white_1000"
+                android:gravity="fill"
+                android:orientation="vertical">
+
+
+                <LinearLayout
+                    android:id="@+id/txtOnbord"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:orientation="vertical"
+                    android:visibility="invisible">
+
+                    <TextView
+                        android:id="@+id/txtOnbordH6"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtOnbordH6"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/txtOnbordB1"
+                        style="@style/TextAppearance.MdcTypographyStyles.Subtitle1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtOnbordB1" />
+                </LinearLayout>
+
+
+                <HorizontalScrollView
+                    android:id="@+id/scrollGraph"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:visibility="gone">
+
+                    <LinearLayout
+                        android:id="@+id/linearGraph"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <com.github.aachartmodel.aainfographics.aachartcreator.AAChartView
+                            android:id="@+id/aa_chart_view"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent">
+
+                        </com.github.aachartmodel.aainfographics.aachartcreator.AAChartView>
+
+                    </LinearLayout>
+
+
+                </HorizontalScrollView>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginEnd="20dp">
+
+                    <TextView
+                        android:id="@+id/txtRecord"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="20dp"
+                        android:drawableEnd="@drawable/ic_calendar"
+                        android:gravity="center"
+                        android:text=""
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/txtRecord">
+
+                        <TextView
+                            android:id="@+id/txtPressure"
+                            style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:text="@string/pressureAndPulse"
+                            android:textColor="@color/md_black_1000"
+                            android:textStyle="bold"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent" />
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:orientation="horizontal"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/txtPressure">
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/nPickUpper"
+                                style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginEnd="20dp"
+                                android:width="100dp"
+                                android:orientation="vertical"
+                                app:np_dividerColor="@color/md_light_blue_400"
+                                app:np_dividerThickness="1dp"
+                                app:np_max="300"
+                                app:np_min="0"
+                                app:np_selectedTextSize="22sp"
+                                app:np_textSize="20sp"
+                                app:np_value="0">
+
+                            </com.shawnlin.numberpicker.NumberPicker>
+
+                            <TextView
+                                android:id="@+id/txtDiv"
+                                style="@style/TextAppearance.MaterialComponents.Headline4"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:text="/"
+                                android:textColor="@color/md_black_1000" />
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/nPickLower"
+                                style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="15dp"
+                                android:layout_marginStart="20dp"
+                                android:width="100dp"
+                                android:orientation="vertical"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/txtPressure"
+                                app:np_dividerColor="@color/md_light_blue_400"
+                                app:np_dividerThickness="1dp"
+                                app:np_max="200"
+                                app:np_min="0"
+                                app:np_selectedTextSize="22sp"
+                                app:np_textSize="20sp"
+                                app:np_value="0" />
+
+                            <com.shawnlin.numberpicker.NumberPicker
+                                android:id="@+id/nPickerPulse"
+                                style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="40dp"
+                                android:layout_marginTop="15dp"
+                                android:orientation="vertical"
+                                app:np_dividerColor="@color/md_red_400"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toStartOf="@+id/nPickLower"
+                                app:layout_constraintHorizontal_bias="0.0"
+                                app:layout_constraintStart_toEndOf="@+id/txtDiv"
+                                app:layout_constraintTop_toBottomOf="@+id/txtPressure"
+                                app:np_dividerThickness="1dp"
+                                app:np_max="250"
+                                app:np_min="0"
+                                app:np_selectedTextSize="22sp"
+                                app:np_textSize="20sp"
+                                app:np_value="0" />
+
+                        </LinearLayout>
+
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <Button
+                        android:id="@+id/deleteCard"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:visibility="gone"/>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="20dp"
+                    android:gravity="fill"
+                    android:orientation="vertical">
+
+
+                    <TextView
+                        android:id="@+id/txtHealthy"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_black_1000"
+                        android:text="@string/healthy" />
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupHealthy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+
+                    <TextView
+                        android:id="@+id/txtUnhealthy"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_black_1000"
+                        android:text="@string/txtUnhealthy" />
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupUnhealthy"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        android:id="@+id/txtSymptoms"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_black_1000"
+                        android:text="@string/txtSymptoms" />
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupSymptoms"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        android:id="@+id/txtCare"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/md_black_1000"
+                        android:text="@string/txtCare" />
+
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupCare"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+                    <TextView
+                        android:id="@+id/txtOtherTags"
+                        style="@style/TextAppearance.MdcTypographyStyles.Headline6"
+                        android:textStyle="bold"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/txtOtherTags"
+                        android:textColor="@color/md_black_1000" />
+
+                    <EditText
+                        android:id="@+id/editTxtOtherTags"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:ems="10"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="10dp"
+                        android:inputType="textPersonName"
+                        android:hint="@string/editTxtOtherTags"
+                        android:text="" />
+
+                    <Button
+                        android:id="@+id/btnOtherTags"
+                        style="@style/Widget.MaterialComponents.Button.TextButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:text="@string/btnOtherTags" />
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chipGroupOtherTags"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="15dp"
+                        android:layout_marginTop="15dp"
+                        android:layout_marginBottom="20dp">
+
+                    </com.google.android.material.chip.ChipGroup>
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+</layout>
