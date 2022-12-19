@@ -2,11 +2,14 @@ package com.example.bloodpressurehypertension.Statistics.View
 
 import androidx.lifecycle.ViewModelProvider
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.core.view.isNotEmpty
+import androidx.core.view.size
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -37,7 +40,7 @@ class Statistics : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         bindingStatistics.apply {
-            recyclerStatistics.layoutManager = LinearLayoutManager(requireContext())
+            recyclerStatistics.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, true)
             val adapter = BloodPressureAdapter(
                 delete = {
                     viewModel.deleteBloodPressure(it)
@@ -48,8 +51,13 @@ class Statistics : Fragment() {
             lifecycleScope.launch {
                 viewModel.bloodPressureItems.collect {
                     adapter.submitList(it)
-
+                    if(it.isEmpty()){
+                        txtOnbord.visibility = View.VISIBLE
+                    }else{
+                        txtOnbord.visibility = View.GONE
+                    }
                 }
+
             }
         }
     }

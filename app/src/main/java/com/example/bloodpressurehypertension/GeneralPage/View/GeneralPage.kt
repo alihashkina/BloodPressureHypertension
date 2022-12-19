@@ -166,6 +166,10 @@ class GeneralPage : Fragment() {
                 )
                 viewModel.saveBloodPressure(bloodPressureItem)
 
+                chipGroupHealthy.clearCheck()
+                chipGroupUnhealthy.clearCheck()
+                chipGroupSymptoms.clearCheck()
+                chipGroupCare.clearCheck()
 
                 Toast.makeText(requireContext(), requireContext().getString(R.string.toastSave), Toast.LENGTH_SHORT).show()
                 scrollGeneral.post {
@@ -301,10 +305,8 @@ class GeneralPage : Fragment() {
                     it.date
                 }.size < 3){
                 bindingGeneralPage.aaChartView.layoutParams.width = 1000
-                Log.i("SSS", "1")
             } else{
                 bindingGeneralPage.aaChartView.layoutParams.width = bindingGeneralPage.linearGraph.layoutParams.width
-                Log.i("SSS", "!!")
             }
 
             //фокус графика в конец
